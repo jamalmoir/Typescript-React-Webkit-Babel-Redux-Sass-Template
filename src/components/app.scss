@@ -1,0 +1,96 @@
+body {
+  background: linear-gradient(45deg, #3a1c71, #d76d77, #ffaf7b);
+  background-size: 400%;
+  animation: Background 20s ease infinite;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 4em;
+  letter-spacing: -4px;
+  text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.6);
+
+  &:after {
+    display: block;
+    color: #ffffff;
+    letter-spacing: 1px;
+    font-family: "Open Sans", sans-serif;
+    content: "React, Webpack, Babel and Sass, Oh my!";
+    font-size: 0.4em;
+  }
+}
+
+.button {
+  display: block;
+  background: transparent;
+  border: 1px solid #fff;
+  opacity: 0.8;
+  margin: 25px auto;
+  padding: 20px 40px;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.6em;
+  text-decoration: none;
+  transition: all 0.5s ease;
+
+  &:hover {
+    opacity: 1;
+    background-color: #ffffff;
+    color: #a1a1a1;
+  }
+}
+
+@-webkit-keyframes Background {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@-moz-keyframes Background {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes Background {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
