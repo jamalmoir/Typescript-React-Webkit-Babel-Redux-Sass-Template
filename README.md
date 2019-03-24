@@ -1,2 +1,2 @@
-# React-Webkit-Babel-Sass-Template
-A template for an app using React, Webkit, Babel and Sass.
+# Typescript, React, Webkit, Babel, Sass, Template
+A template for an app using Typescript, React, Webkit, Babel and Sass.
