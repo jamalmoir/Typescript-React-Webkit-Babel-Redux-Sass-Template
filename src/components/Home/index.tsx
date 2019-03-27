@@ -8,7 +8,7 @@ class Home extends React.Component {
     return (
       <div className="container">
         <div>
-          <h1>Jamal's React, Webpack, Babel Template</h1>
+          <h1>Jamal's Typescript, React, Webpack, Babel, Redux and Sass Template</h1>
           <a className="button"
             href="https://reactjs.org/docs/getting-started.html"
             target="_blank"
