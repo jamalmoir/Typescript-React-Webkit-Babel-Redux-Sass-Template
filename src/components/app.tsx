@@ -1,26 +1,40 @@
 import React from "react";
-import "./app.scss";
+import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
+import { Dispatch } from 'redux';
 
-const App = () => {
-  return (
-    <div className="container">
+import { AppState, AppAction } from '../redux/reducers/app'
+import { APP_LOAD } from '../redux/actions/actionTypes';
+import Home from './Home/index';
+
+
+const mapStateToProps = (state: AppState) => {
+  return {
+    appLoaded: state.appLoaded,
+  }};
+
+const mapDispatchToProps = (dispatch: Dispatch<AppAction>) => ({
+  onLoad: () => dispatch({ type: APP_LOAD }),
+});
+
+interface AppProps {
+  onLoad: () => null;
+}
+
+class App extends React.Component<AppProps> {
+  componentDidMount() {
+    this.props.onLoad();
+  }
+
+  render () {
+    return (
       <div>
-        <h1>Jamal's React, Webpack, Babel Template</h1>
-        <a className="button"
-           href="https://reactjs.org/docs/getting-started.html"
-           target="_blank"
-        >
-          View React Docs
-        </a>
-        <a className="button"
-           href="https://webpack.js.org/concepts"
-           target="_blank"
-        >
-          View Webpack Docs
-        </a>
+        <Switch>
+          <Route exact path="/" component={ Home }/>
+        </Switch>
       </div>
-    </div>
-  );
+    )
+  };
 };
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
