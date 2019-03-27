@@ -1,14 +1,26 @@
 import React from "react";
+import { connect } from 'react-redux';
 
+import Types from 'Types';
 import "./home.scss";
 
 
-class Home extends React.Component {
+interface HomeProps {
+  appLoaded: boolean;
+}
+
+const mapStateToProps = (state: Types.RootState) => {
+  return {
+    appLoaded: state.app.appLoaded,
+  }
+};
+
+class Home extends React.Component<HomeProps> {
   render () {
     return (
       <div className="container">
         <div>
-          <h1>Jamal's Typescript, React, Webpack, Babel, Redux and Sass Template</h1>
+          <h1>Jamal's Typescript, React, Webpack, Babel, Redux and Sass Template { this.props.appLoaded ? "Has Loaded!" : "" }</h1>
           <a className="button"
             href="https://reactjs.org/docs/getting-started.html"
             target="_blank"
@@ -27,4 +39,4 @@ class Home extends React.Component {
   };
 };
 
-export default Home;
+export default connect(mapStateToProps)(Home);
