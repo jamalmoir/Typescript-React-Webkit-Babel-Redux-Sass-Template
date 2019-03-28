@@ -5,6 +5,8 @@ import { Dispatch } from 'redux';
 
 import Types from 'Types'
 
+import "./App.scss";
+
 import { AppAction } from '../redux/reducers/app'
 import { APP_LOAD } from '../redux/actions/actionTypes';
 import Home from './Home/index';
@@ -38,7 +40,7 @@ class App extends React.Component<AppProps> {
 
   render () {
     return (
-      <div>
+      <div className="App">
         { this.props.appLoaded ? content: ""}
       </div>
     )
