@@ -41,7 +41,7 @@ class App extends React.Component<AppProps> {
   render () {
     return (
       <div className="app">
-        { this.props.appLoaded ? content: ""}
+        { this.props.appLoaded ? content: "" }
       </div>
     )
   };

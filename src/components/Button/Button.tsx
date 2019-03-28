@@ -11,10 +11,10 @@ interface ButtonProps {
 export let Button = (props: ButtonProps) => {
   return (
     <a className="Button"
-       href={props.href}
+       href={ props.href }
        target="_blank"
-       onClick={props.onClick}>
-      {props.text}
+       onClick={ props.onClick }>
+      { props.text }
     </a>
   )
 }
