@@ -5,11 +5,11 @@ import { Dispatch } from 'redux';
 
 import Types from 'Types'
 
-import "./App.scss";
+import "./app.scss";
 
-import { AppAction } from '../redux/reducers/app'
-import { APP_LOAD } from '../redux/actions/actionTypes';
-import Home from './Home/index';
+import { AppAction } from '../../redux/reducers/app'
+import { APP_LOAD } from '../../redux/actions/actionTypes';
+import { Home } from '../home';
 
 
 const mapStateToProps = (state: Types.RootState) => {
@@ -40,7 +40,7 @@ class App extends React.Component<AppProps> {
 
   render () {
     return (
-      <div className="App">
+      <div className="app">
         { this.props.appLoaded ? content: ""}
       </div>
     )

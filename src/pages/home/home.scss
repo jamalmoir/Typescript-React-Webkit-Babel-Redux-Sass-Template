@@ -1,4 +1,4 @@
-.Home {
+.home {
   display: flex;
   flex: 1;
   padding: 0 50px;
@@ -27,27 +27,4 @@
       font-size: 0.4em;
   }
 
-  .button {
-    display: block;
-    background: transparent;
-    border: 1px solid #fff;
-    opacity: 0.8;
-    margin: 25px auto;
-    padding: 20px 40px;
-    width: 75%;
-    color: #ffffff;
-    text-align: center;
-    font-family: "Open Sans", sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1.6em;
-    text-decoration: none;
-    transition: all 0.5s ease;
-
-    &:hover {
-      opacity: 1;
-      background-color: #ffffff;
-      color: #a1a1a1;
-    }
-  }
 }

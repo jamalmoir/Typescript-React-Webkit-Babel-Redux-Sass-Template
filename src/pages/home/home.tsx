@@ -4,6 +4,7 @@ import { Dispatch } from 'redux';
 
 import Types from 'Types';
 import { BUTTON_CLICK } from "../../redux/actions/actionTypes";
+import { Button } from "../../components/Button";
 import "./home.scss";
 
 
@@ -13,30 +14,22 @@ interface HomeProps {
   onButtonClick: () => null;
 }
 
-class Home extends React.Component<HomeProps> {
+class HomePage extends React.Component<HomeProps> {
   buttonClickHandler = () => {
 		this.props.onButtonClick();
   }
 
   render () {
     return (
-      <div className="Home">
+      <div className="home">
         <div>
           <h1>Jamal's React Template { this.props.appLoaded ? "Has Loaded!" : "" }</h1>
-          <a className="button"
-            href="https://reactjs.org/docs/getting-started.html"
-            target="_blank"
-            onClick={this.buttonClickHandler}
-          >
-            View React Docs
-          </a>
-          <a className="button"
-            href="https://webpack.js.org/concepts"
-            target="_blank"
-            onClick={this.buttonClickHandler}
-          >
-            View Webpack Docs
-          </a>
+          <Button href="https://reactjs.org/docs/getting-started.html"
+                  text="View React Docs"
+                  onClick={this.buttonClickHandler} />
+          <Button href="https://webpack.js.org/concepts"
+                  text="View Webpack Docs"
+                  onClick={this.buttonClickHandler} />
           <div className="button-clicks">{this.props.buttonClicks === 1 ? '1 Button Click' : this.props.buttonClicks + ' Button Clicks'}</div>
         </div>
       </div>
@@ -57,4 +50,4 @@ const mapDispatchToProps = (dispatch: Dispatch<Types.RootAction>) => {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export let Home = connect(mapStateToProps, mapDispatchToProps)(HomePage);
