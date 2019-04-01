@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const dev = process.env.NODE_ENV !== 'production';
+
 module.exports = {
   entry: path.join(__dirname, 'src', 'index.tsx'),
   devtool: 'eval-source-map',
@@ -23,7 +25,26 @@ module.exports = {
       },
       {
         test: /.(css|scss)$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [
+          //MiniCssExtractPlugin.loader,
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap:true,
+              importLoaders: 1,
+              localIdentName: '[local]__[hash:base64:5]'
+            }
+          },
+          { 
+            loader: 'sass-loader',
+            options: {
+              includePaths: [path.styles],
+              //sourceMap: dev
+            }
+          }
+        ],
       },
       {
         test: /.(png|jpg|jpeg|svg|gif)$/,
@@ -59,8 +80,8 @@ module.exports = {
       template: path.join(__dirname, 'src', 'index.html')
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
+      filename: dev ? '[name].css' : '[name].[hash].css',
+      chunkFilename: dev ? '[id].css' : '[id].[hash].css',
     })
   ]
 };

@@ -4,13 +4,4 @@
   font-size: 4em;
   letter-spacing: -4px;
   text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.6);
-
-  &:after {
-    display: block;
-    color: #ffffff;
-    letter-spacing: 1px;
-    font-family: "Open Sans", sans-serif;
-    content: "Typescript, React, Webpack, Babel, Redux and Sass, Oh my!";
-    font-size: 0.4em;
-  }
 }

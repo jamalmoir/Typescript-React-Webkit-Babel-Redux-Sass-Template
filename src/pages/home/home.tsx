@@ -1,12 +1,14 @@
-import React from "react";
+import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import { Link } from 'react-router-dom';
 
 import Types from 'Types';
-import { BUTTON_CLICK } from "../../redux/actions/actionTypes";
-import { Button } from "../../components/Button";
-import { Heading } from "../../components/Heading";
-import "./home.scss";
+
+import { BUTTON_CLICK } from '../../redux/actions/actionTypes';
+import { ExternalLinkButton } from '../../components/ExternalLinkButton';
+import { Heading } from '../../components/Heading';
+import styles from './home.scss';
 
 
 interface HomeProps {
@@ -22,15 +24,19 @@ class HomePage extends React.Component<HomeProps> {
 
   render () {
     return (
-      <div className="home">
-        <Heading text={ "Jamal's React Template " + (this.props.appLoaded ? "Has Loaded!" : "") } />
-        <Button href="https://reactjs.org/docs/getting-started.html"
-                text="View React Docs"
-                onClick={ this.buttonClickHandler } />
-        <Button href="https://webpack.js.org/concepts"
-                text="View Webpack Docs"
-                onClick={ this.buttonClickHandler } />
-        <div className="button-clicks">
+      <div className={ styles.home }>
+        <Heading className={ styles.homeHeading }
+                 text={ "Jamal's React Template " + (this.props.appLoaded ? "Has Loaded!" : "") } />
+        <ExternalLinkButton className={ styles.homeButton }
+                            href="https://reactjs.org/docs/getting-started.html"
+                            text="View React Docs"
+                            onClick={ this.buttonClickHandler } />
+        <ExternalLinkButton className={ styles.homeButton }
+                            href="https://webpack.js.org/concepts"
+                            text="View Webpack Docs"
+                            onClick={ this.buttonClickHandler } />
+        <Link to="/example">Go To Example Page</Link>
+        <div className={ styles.buttonClicks }>
           { this.props.buttonClicks === 1
               ? '1 Button Click'
               : this.props.buttonClicks + ' Button Clicks' }

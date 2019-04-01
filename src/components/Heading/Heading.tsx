@@ -1,13 +1,14 @@
 import React from 'react';
 
-import './Heading.scss';
+import styles from './Heading.scss';
 
 interface HeadingProps {
+  className?: string;
   text: string;
 }
 
 export let Heading = (props: HeadingProps) => {
   return (
-    <h1 className="Heading">{ props.text }</h1>
+    <h1 className={ styles.Heading + ' ' + props.className }>{ props.text }</h1>
   )
 }

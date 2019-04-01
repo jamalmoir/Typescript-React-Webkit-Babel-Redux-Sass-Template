@@ -1,15 +1,16 @@
-import React from "react";
+import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { Dispatch } from 'redux';
 
 import Types from 'Types'
 
-import "./app.scss";
+import styles from './app.scss';
 
 import { AppAction } from '../../redux/reducers/app'
 import { APP_LOAD } from '../../redux/actions/actionTypes';
 import { Home } from '../home';
+import { Example } from '../example';
 
 
 const mapStateToProps = (state: Types.RootState) => {
@@ -29,6 +30,7 @@ interface AppProps {
 const content = (
     <Switch>
       <Route exact path="/" component={ Home }/>
+      <Route exact path="/example" component={ Example }/>
     </Switch>
 )
 
@@ -40,7 +42,7 @@ class App extends React.Component<AppProps> {
 
   render () {
     return (
-      <div className="app">
+      <div className={ styles.app }>
         { this.props.appLoaded ? content: "" }
       </div>
     )

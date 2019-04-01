@@ -26,6 +26,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "ts-loader": "^5.3.3",
     "typesafe-actions": "^3.2.1",
     "typescript": "^3.3.4000",
