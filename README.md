@@ -1,5 +1,7 @@
 # React + Typescript Temaplate
 
+Author: [Jamal Moir](https://github.com/jamalmoir/)
+
 Technologies:
 - [Webkit](https://webkit.org/)
 - [Typescript](https://www.typescriptlang.org/)
@@ -10,7 +12,7 @@ Frameworks:
 - [React](https://reactjs.org/)
 - [Redux](https://redux.js.org/)
 
-Key Ideas:
+Influencing Articles:
 - [Structuring React Projects — a Definitive Guide](https://blog.bitsrc.io/structuring-a-react-project-a-definitive-guide-ac9a754df5eb)
 
 Code Guidelines:
