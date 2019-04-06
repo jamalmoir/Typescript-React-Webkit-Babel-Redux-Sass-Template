@@ -4,16 +4,18 @@ import { StateType } from 'typesafe-actions';
 
 import rootReducer from '../redux/reducer';
 import {AppState, AppAction} from '../redux/reducers/app'
-import { HomeAction, HomeState } from '../redux/reducers/home';
+import { AuthState, AuthAction } from '../redux/reducers/auth';
+import { HomeState, HomeAction } from '../redux/reducers/home';
 
 
 declare module 'Types' {
   export interface RootState {
     readonly app: AppState;
+    readonly auth: AuthState;
     readonly home: HomeState;
   }
 
-  export type RootAction = AppAction| HomeAction;
+  export type RootAction = AppAction | AuthAction | HomeAction;
 
   export interface ConnectedReduxProps<A extends Action = AnyAction> {
     dispatch: Dispatch<A>

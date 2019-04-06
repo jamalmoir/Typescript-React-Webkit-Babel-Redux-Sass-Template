@@ -10,7 +10,9 @@ import styles from './app.scss';
 import { AppAction } from '../../redux/reducers/app'
 import { APP_LOAD } from '../../redux/actions/actionTypes';
 import { Home } from '../home';
+import { Login } from '../login';
 import { Example } from '../example';
+import { ProtectedRoute } from '../../components/ProtectedRoute';
 
 
 const mapStateToProps = (state: Types.RootState) => {
@@ -29,8 +31,9 @@ interface AppProps {
 
 const content = (
     <Switch>
-      <Route exact path="/" component={ Home }/>
-      <Route exact path="/example" component={ Example }/>
+      <ProtectedRoute exact path="/" component={ Home }/>
+      <Route exact path="/login" component={ Login }/>
+      <ProtectedRoute exact path="/example" component={ Example }/>
     </Switch>
 )
 

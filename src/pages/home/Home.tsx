@@ -38,8 +38,8 @@ class HomePage extends React.Component<HomeProps> {
         <Link to="/example">Go To Example Page</Link>
         <div className={ styles.buttonClicks }>
           { this.props.buttonClicks === 1
-              ? '1 Button Click'
-              : this.props.buttonClicks + ' Button Clicks' }
+              ? "1 Button Click"
+              : this.props.buttonClicks + " Button Clicks" }
         </div>
       </div>
     )
@@ -55,7 +55,7 @@ const mapStateToProps = (state: Types.RootState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch<Types.RootAction>) => {
 	return {
-		onButtonClick: () => dispatch({type: BUTTON_CLICK})
+		onButtonClick: () => dispatch({ type: BUTTON_CLICK })
 	}
 }
 
