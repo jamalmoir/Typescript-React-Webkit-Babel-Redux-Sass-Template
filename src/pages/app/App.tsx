@@ -37,8 +37,7 @@ const content = (
     </Switch>
 )
 
-
-class App extends React.Component<AppProps> {
+class AppPage extends React.Component<AppProps> {
   componentDidMount() {
     this.props.onLoad();
   }
@@ -52,4 +51,4 @@ class App extends React.Component<AppProps> {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export let App = connect(mapStateToProps, mapDispatchToProps)(AppPage);

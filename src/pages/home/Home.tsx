@@ -17,33 +17,31 @@ interface HomeProps {
   onButtonClick: () => null;
 }
 
-class HomePage extends React.Component<HomeProps> {
-  buttonClickHandler = () => {
-		this.props.onButtonClick();
+let HomePage = (props: HomeProps) => {
+  let buttonClickHandler = () => {
+		props.onButtonClick();
   }
 
-  render () {
-    return (
-      <div className={ styles.home }>
-        <Heading className={ styles.homeHeading }
-                 text={ "Jamal's React Template " + (this.props.appLoaded ? "Has Loaded!" : "") } />
-        <ExternalLinkButton className={ styles.homeButton }
-                            href="https://reactjs.org/docs/getting-started.html"
-                            text="View React Docs"
-                            onClick={ this.buttonClickHandler } />
-        <ExternalLinkButton className={ styles.homeButton }
-                            href="https://webpack.js.org/concepts"
-                            text="View Webpack Docs"
-                            onClick={ this.buttonClickHandler } />
-        <Link to="/example">Go To Example Page</Link>
-        <div className={ styles.buttonClicks }>
-          { this.props.buttonClicks === 1
-              ? "1 Button Click"
-              : this.props.buttonClicks + " Button Clicks" }
-        </div>
+  return (
+    <div className={ styles.home }>
+      <Heading className={ styles.homeHeading }
+                text={ "Jamal's React Template " + (props.appLoaded ? "Has Loaded!" : "") } />
+      <ExternalLinkButton className={ styles.homeButton }
+                          href="https://reactjs.org/docs/getting-started.html"
+                          text="View React Docs"
+                          onClick={ buttonClickHandler } />
+      <ExternalLinkButton className={ styles.homeButton }
+                          href="https://webpack.js.org/concepts"
+                          text="View Webpack Docs"
+                          onClick={ buttonClickHandler } />
+      <Link to="/example">Go To Example Page</Link>
+      <div className={ styles.buttonClicks }>
+        { props.buttonClicks === 1
+            ? "1 Button Click"
+            : props.buttonClicks + " Button Clicks" }
       </div>
-    )
-  };
+    </div>
+  )
 };
 
 const mapStateToProps = (state: Types.RootState) => {
