@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 
 import { App } from './pages/app';
+import './style.scss';
 
 ReactDOM.render((
      <Provider store={ store }>
