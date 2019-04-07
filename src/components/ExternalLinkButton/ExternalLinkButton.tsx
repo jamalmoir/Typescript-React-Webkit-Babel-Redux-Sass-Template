@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './ExternalLinkButton.scss';
+import styles from './externalLinkButton.scss';
 
 interface ExternalLinkButtonProps {
   className?: string
@@ -9,7 +9,7 @@ interface ExternalLinkButtonProps {
   onClick?: (...args: any[]) => any;
 }
 
-export let ExternalLinkButton = (props: ExternalLinkButtonProps) => {
+export const ExternalLinkButton = (props: ExternalLinkButtonProps) => {
   return (
     <a className={ styles.ExternalLinkButton + ' ' + props.className }
        href={ props.href }

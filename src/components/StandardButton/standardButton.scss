@@ -1,0 +1,13 @@
+.standardButton {
+  border: none;
+  text-decoration: none;
+  margin-top: .5em;
+  padding: .8em 1.5em;
+  background-color: #ffaf7b;
+  color: white;
+  width: 100%;
+
+  &:hover {
+    background-color: #d76d77;
+  }
+}

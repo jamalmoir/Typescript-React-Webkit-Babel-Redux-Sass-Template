@@ -29,4 +29,4 @@ const mapStateToProps = (state: Types.RootState) => {
   }
 }
 
-export let ProtectedRoute = connect(mapStateToProps)(protectedRoute);
+export const ProtectedRoute = connect(mapStateToProps)(protectedRoute);

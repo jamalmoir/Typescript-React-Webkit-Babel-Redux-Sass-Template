@@ -9,6 +9,7 @@ import { BUTTON_CLICK } from '../../redux/actions/actionTypes';
 import { ExternalLinkButton } from '../../components/ExternalLinkButton';
 import { Heading } from '../../components/Heading';
 import styles from './home.scss';
+import { buttonClick } from '../../redux/actions/home';
 
 
 interface HomeProps {
@@ -53,8 +54,8 @@ const mapStateToProps = (state: Types.RootState) => {
 
 const mapDispatchToProps = (dispatch: Dispatch<Types.RootAction>) => {
 	return {
-		onButtonClick: () => dispatch({ type: BUTTON_CLICK })
+		onButtonClick: () => dispatch(buttonClick())
 	}
 }
 
-export let Home = connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export const Home = connect(mapStateToProps, mapDispatchToProps)(HomePage);

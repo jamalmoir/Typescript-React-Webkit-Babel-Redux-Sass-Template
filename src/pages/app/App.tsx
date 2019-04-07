@@ -51,4 +51,4 @@ class AppPage extends React.Component<AppProps> {
   };
 };
 
-export let App = connect(mapStateToProps, mapDispatchToProps)(AppPage);
+export const App = connect(mapStateToProps, mapDispatchToProps)(AppPage);

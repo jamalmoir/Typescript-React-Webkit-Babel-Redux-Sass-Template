@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 interface ExampleProps {}
 
-export let Example = (props: ExampleProps) => {
+export const Example = (props: ExampleProps) => {
   return (
     <div className="home">
       <Heading text="This is an Example Page" />
