@@ -5,16 +5,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 50px;
 
   .buttonClicks {
       color: #ffffff;
-      letter-spacing: 1px;
+      letter-spacing: 0.04em;
       font-size: 0.4em;
   }
 
   .homeButton {
-    margin: 25px auto;
+    margin: 1em auto;
     width: 75%;
   }
 
@@ -22,7 +21,7 @@
     &:after {
       display: block;
       color: #ffffff;
-      letter-spacing: 1px;
+      letter-spacing: 0.04em;
       content: "Typescript, React, Webpack, Babel, Redux and Sass, Oh my!";
       font-size: 0.4em;
     }
