@@ -4,7 +4,12 @@
   border: none;
   background: #eeeeee;
 
+  &.errors {
+    background: lightcoral;
+  }
+
   ::placeholder {
     color: #cccccc;
+
   }
 }

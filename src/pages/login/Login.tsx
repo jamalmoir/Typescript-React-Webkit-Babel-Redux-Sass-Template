@@ -9,12 +9,18 @@ import styles from './login.scss';
 import { StandardButton } from '../../components/StandardButton';
 import { TextInput } from '../../components/TextInput';
 import { authenticateUser } from '../../redux/actions/auth';
+import { validate } from '../../utils/validation'
 
 
 interface LoginState {
   controls : {
     [key: string]: {
       value: string
+      errors: string[],
+      touched: boolean,
+      validationRules: {
+        [key: string]: any,
+      }
     }
   }
 }
@@ -29,16 +35,38 @@ class LoginPage extends Component<LoginProps> {
   state: LoginState = {
     controls: {
       email: {
-        value: ''
+        value: '',
+        errors: [],
+        touched: false,
+        validationRules: {
+          isEmail: true,
+        }
       },
       password: {
-        value: ''
+        value: '',
+        errors: [],
+        touched: false,
+        validationRules: {
+          minLength: 6,
+        }
       }
     }
   }
 
   updateInputState(key: string, event: ChangeEvent<HTMLInputElement>) {
     let text = event.target.value;
+    let connectedValue = {};
+
+    // equalTo rule requires a connectedValue to be compared to.
+    if (this.state.controls[key].validationRules.equalTo) {
+			const equalControl = this.state.controls[key].validationRules.equalTo;
+      const equalValue = this.state.controls[equalControl].value;
+
+			connectedValue = {
+				...connectedValue,
+				equalTo: equalValue
+			};
+		}
 
     this.setState((prevState: LoginState) => {
       return {
@@ -46,7 +74,9 @@ class LoginPage extends Component<LoginProps> {
           ...prevState.controls,
           [key]: {
             ...prevState.controls[key],
-            value: text
+            value: text,
+            errors: validate(text, this.state.controls[key].validationRules, connectedValue),
+            touched: true
           }
         }
       }
@@ -77,10 +107,12 @@ class LoginPage extends Component<LoginProps> {
             <TextInput type="email"
                        placeholder="email"
                        value={ this.state.controls.email.value }
+                       errors={ this.state.controls.email.errors.length && this.state.controls.email.touched }
                        onChange={ (event: ChangeEvent<HTMLInputElement>) => this.updateInputState('email', event) } />
             <TextInput type="password"
                        placeholder="password"
                        value={ this.state.controls.password.value }
+                       errors={ this.state.controls.password.errors.length && this.state.controls.password.touched }
                        onChange ={(event: ChangeEvent<HTMLInputElement>) => this.updateInputState('password', event) } />
             <StandardButton text="login" onClick={ this.loginHandler } />
           </div>
